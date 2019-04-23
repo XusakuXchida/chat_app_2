@@ -3,6 +3,6 @@ class RoomsController < ApplicationController
 
   def show
     #binding.pry
-    @messages = Message.all
+    @messages = Message.recent.limit(5).reverse
   end
 end
