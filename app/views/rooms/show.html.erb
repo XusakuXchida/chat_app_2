@@ -1,8 +1,12 @@
-<h1>Chat Room</h1>
-<div id='messages'>
-  <%= render @messages %>
+<div class="container">
+  <h1>Chat Room</h1>
+  <div id='messages'>
+    <%= render @messages %>
+  </div>
+  <form class="form-inline">
+    <div class="form-group">
+      <label>Say something:</label><br>
+      <input type="text" class="form-control" data-behavior="room_speaker">
+    </div>
+  </form>
 </div>
-<form>
-  <label>Say something:</label><br>
-  <input type="text" data-behavior="room_speaker">
-</form>
