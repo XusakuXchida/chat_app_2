@@ -8,8 +8,9 @@ document.addEventListener 'turbolinks:load', ->
       # Called when the subscription has been terminated by the server
 
     received: (data) ->
-      $('#messages').append data['message']
-      # Called when there's incoming data on the websocket for this channel
+      if data['room_id'] is room_id
+        $('#messages').append data['message']
+        # Called when there's incoming data on the websocket for this channel
 
     speak: (message) ->
       @perform 'speak', message: message
