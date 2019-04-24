@@ -1,6 +1,18 @@
 <div class="container">
   <h1>Chat Room</h1>
-  <div id='messages'>
+
+  <div id="messages", data-room_id="<%= @room.id %>">
+    <%= render @messages %>
+  </div>
+  <div class="input">
+    <form>
+      <label>post</label>
+      <input type="text" data-behavior="room_speaker">
+    </form>
+  </div>
+</div>
+
+<!--   <div id='messages'>
     <%= render @messages %>
   </div>
   <form class="form-inline">
@@ -8,5 +20,4 @@
       <label>Say something:</label><br>
       <input type="text" class="form-control" data-behavior="room_speaker">
     </div>
-  </form>
-</div>
+  </form> -->
