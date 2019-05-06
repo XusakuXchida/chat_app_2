@@ -9,8 +9,11 @@ class RoomChannel < ApplicationCable::Channel
 
   def speak(data)
     #binding.pry    #params: {"channel"=>"RoomChannel", "room_id"=>2}
-    message = Message.create!(content: data['message'], user_id: current_user.id, room_id: params['room_id'])
-    render_message = ApplicationController.renderer.render(partial: 'messages/message', locals: {message: message})
+    message = Message.create!(content: data['message'],
+                              user_id: current_user.id,
+                              room_id: params['room_id'])
+    render_message = ApplicationController.renderer.render(partial: 'messages/message',
+                                                            locals: {message: message})
     ActionCable.server.broadcast 'room_channel',
                                   message: render_message,
                                   room_id: params['room_id']
